@@ -1,0 +1,10 @@
+{
+    "codeLens.enable": true,
+    "python.jediEnabled": false,
+    "python.linting.enabled": true,
+    "explorer.previewAction.onHover": false,
+    "emmet.showExpandedAbbreviation": "always",
+    "emmet.includeLanguages": {
+        "html.erb": "html"
+    }
+}
