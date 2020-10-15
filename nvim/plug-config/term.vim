@@ -6,6 +6,9 @@ let $RTP = split(&runtimepath, ",")[0]
 let $RC = "$HOME/.config/nvim/init.vim"
 
 
+" Vim test
+let test#strategy = "neoterm"
+
 " Testing
 " nmap <silent> t<C-n> :TestNearest<CR>
 " nmap <silent> t<C-f> :TestFile<CR>
@@ -19,7 +22,7 @@ let g:neoterm_autoinsert=0
 let g:neoterm_autoscroll=1
 let g:neoterm_fixedsize=1
 
-let g:neoterm_default_mod='vertical'
+let g:neoterm_default_mod='belowright'
 
 " Python
 " function! TermPy()
@@ -40,6 +43,11 @@ if has('nvim')
   tnoremap <C-k> <C-\><C-n><C-w>k
   tnoremap <C-l> <C-\><C-n><C-w>l
 
-  set emoji
+  tnoremap <silent> <Up>    :call animate#window_delta_height(-4)<CR>
+  tnoremap <silent> <Down>  :call animate#window_delta_height(4)<CR>
+  " tnoremap <silent> <Left>  :call animate#window_delta_width(5)<CR>
+  " tnoremap <silent> <Right> :call animate#window_delta_width(-5)<CR>
+
+  set emoji " 😄
 endif
 

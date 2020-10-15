@@ -1,8 +1,4 @@
-" vim-bootstrap
-
-"*****************************************************************************
 "" Vim-PLug core
-"*****************************************************************************
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 
 if !filereadable(vimplug_exists)
@@ -21,9 +17,6 @@ endif
 " Required:
 call plug#begin(expand('~/.config/nvim/plugged'))
 
-"*****************************************************************************
-"" Plug install packages
-"*****************************************************************************
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
@@ -51,7 +44,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " be fast bruh
 " Plug 'ThePrimeagen/vim-apm'
-" Plug 'ThePrimeagen/vim-be-good'
+Plug 'ThePrimeagen/vim-be-good'
+
+" LSP Goodies
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/diagnostic-nvim'
+
 
 " Terminal goodies
 Plug 'kassio/neoterm'
@@ -86,7 +85,7 @@ Plug 'xolox/vim-session'
 
 "" Snippets
 Plug 'SirVer/ultisnips'
-Plug 'xolox/vim-session'
+Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'morhetz/gruvbox'
@@ -97,7 +96,7 @@ Plug 'skywind3000/asyncrun.vim'
 
 " elixir
 Plug 'elixir-lang/vim-elixir'
-Plug 'carlosgaldino/elixir-snippets'
+" Plug 'carlosgaldino/elixir-snippets'
 
 " elm
 "" Elm Bundle
@@ -112,7 +111,6 @@ Plug 'gorodinskiy/vim-coloresque'
 Plug 'mattn/emmet-vim'
 
 " javascript
-"" Javascript Bundle
 Plug 'jelera/vim-javascript-syntax'
 
 " ruby
@@ -126,12 +124,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 " Awesome Comments
 Plug 'tpope/vim-commentary'
-"*****************************************************************************
 
-"" Include user's extra bundle
-" if filereadable(expand("~/.config/nvim/local_bundles.vim"))
-  " source ~/.config/nvim/local_bundles.vim
-" endif
+" Animate
+Plug 'camspiers/animate.vim'
 
 call plug#end()
 
@@ -172,7 +167,6 @@ set inccommand=split
 
 set list                            " show invisible characters
 set listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
-
 set nowrap
 set nu
 
@@ -180,6 +174,17 @@ set nu
 set relativenumber
 
 set fileformats=unix,dos,mac
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Give more space for displaying messages
+set cmdheight=2
 
 augroup highlight_yank
     autocmd!
@@ -189,18 +194,15 @@ augroup END
 " Escape without ESC button
 inoremap <C-c> <esc>
 
-" Give more space for displaying messages
-set cmdheight=2
-
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=50
+set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-set colorcolumn=80
-" highlight ColorColumn ctermbg=1 guibg=lightgrey
+set colorcolumn=100
+highlight ColorColumn ctermbg=1 guibg=lightgrey
 
 if exists('$SHELL')
     set shell=$SHELL
@@ -223,30 +225,27 @@ set number
 
 let no_buffers_menu=1
 
+" Enable mouse because why not
 set mouse=a
 set mousemodel=popup
+
 set t_Co=256
 set guioptions=egmrti
 set gfn=Monospace\ 10
 
-if has("gui_running")
-  if has("gui_mac") || has("gui_macvim")
-    set guifont=Menlo:h12
-    set transparency=7
-  endif
-else
-  let g:CSApprox_loaded = 1
+let g:CSApprox_loaded = 1
 
-  " IndentLine
-  let g:indentLine_enabled = 1
-  let g:indentLine_concealcursor = 0
-  let g:indentLine_char = '┆'
-  let g:indentLine_faster = 1
-endif
-
+" IndentLine
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 0
+let g:indentLine_char = '┆'
+let g:indentLine_faster = 1
 
 "" Disable the blinking cursor.
-set gcr=a:blinkon0
+" set guicursor=a:blinkon0
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+            \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+            \,sm:block-blinkwait175-blinkoff150-blinkon175
 set scrolloff=3
 
 "" Status bar
@@ -272,7 +271,7 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'gruvbox'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -309,7 +308,6 @@ cnoreabbrev Qall qall
 "*****************************************************************************
 " remove trailing whitespaces
 command! FixWhitespace :%s/\s\+$//e
-
 
 "*****************************************************************************
 "" Functions
@@ -356,16 +354,6 @@ set autoread
 "" Mappings
 "*****************************************************************************
 
-"" Git
-" noremap <Leader>ga :Gwrite<CR>
-" noremap <Leader>gc :Gcommit<CR>
-" noremap <Leader>gsh :Gpush<CR>
-" noremap <Leader>gll :Gpull<CR>
-" noremap <Leader>gs :Gstatus<CR>
-" noremap <Leader>gb :Gblame<CR>
-" noremap <Leader>gd :Gvdiff<CR>
-" noremap <Leader>gr :Gremove<CR>
-
 "" Set working directory
 " nnoremap <leader>. :lcd %:p:h<CR>
 
@@ -396,7 +384,7 @@ endif
 
 " Awesome Fuzzy Search
 nnoremap <C-p> :GFiles<CR>
-let g:fzf_layout = { 'window': {'width': 0.8, 'height': 0.8 } }
+let g:fzf_layout = { 'window': {'width': 0.7, 'height': 0.7 } }
 let $FZF_DEFAULT_OPTS='--reverse'
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
@@ -423,14 +411,13 @@ let g:netrw_banner = 1
 let g:netrw_winsize = 20
 let g:netrw_localrmdir='rm -r'
 
-" fun! TrimWhitespace()
-"     let l:save = winsaveview()
-"     keeppatterns %s/\s\+$//e
-"     call winrestview(l:save)
-" endfun
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
 
-" autocmd BufWritePre * :call TrimWhitespace()
-
+autocmd BufWritePre * :call TrimWhitespace()
 
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -438,12 +425,6 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
 
-" ale
-" let g:ale_linters = {}
-
-" Tagbar
-nmap <silent> <F4> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
 
 " Disable visualbell
 set noerrorbells visualbell t_vb=
@@ -457,7 +438,8 @@ if has('unnamedplus')
 endif
 
 noremap YY "+y<CR>
-noremap <leader>p "+gP<CR>
+" noremap <leader>p "+gP<CR>
+vnoremap <leader>p "_dP
 noremap XX "+x<CR>
 
 if has('macunix')
@@ -465,9 +447,6 @@ if has('macunix')
   vmap <C-x> :!pbcopy<CR>
   vmap <C-c> :w !pbcopy<CR><CR>
 endif
-
-"" Clean search (highlight)
-nnoremap <silent> <leader><space> :noh<cr>
 
 "" Switching windows
 noremap <C-j> <C-w>j
@@ -483,21 +462,31 @@ vmap > >gv
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" Tab/shift-tab to indent/outdent in visual mode.
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
+" Switch between the last two files
+nnoremap <tab><tab> <c-^>
+
+" Delete current buffer without losing the split
+nnoremap <silent> <C-x> :bp\|bd #<CR>
+
+" Disable directional keys and use them to resize windows
+let g:animate#duration = 200.0
+
+nnoremap <silent> <Up>    :call animate#window_delta_height(-3)<CR>
+nnoremap <silent> <Down>  :call animate#window_delta_height(3)<CR>
+nnoremap <silent> <Left>  :call animate#window_delta_width(-5)<CR>
+nnoremap <silent> <Right> :call animate#window_delta_width(5)<CR>
+
 "*****************************************************************************
 "" Custom configs
 "*****************************************************************************
 
-" elixir
-
-
-" elm
-" elm-vim
-" let g:elm_setup_keybindings = 0
-" let g:elm_format_autosave = 1
 
 " vim-polyglot
 " let g:polyglot_disabled = ['elm']
-
 
 " erlang
 let erlang_folding = 1
@@ -507,7 +496,6 @@ let erlang_show_errors = 1
 " html
 " for html files, 2 spaces
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
-
 
 " javascript
 let g:javascript_enable_domhtmlcss = 1
@@ -529,17 +517,6 @@ augroup vimrc-ruby
   autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
   autocmd FileType ruby set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
 augroup END
-
-let g:tagbar_type_ruby = {
-    \ 'kinds' : [
-        \ 'm:modules',
-        \ 'c:classes',
-        \ 'd:describes',
-        \ 'C:contexts',
-        \ 'f:methods',
-        \ 'F:singleton methods'
-    \ ]
-\ }
 
 
 " For ruby refactory
@@ -576,26 +553,17 @@ let g:markdown_fenced_languages = [
       \ 'nginx',
       \ ]
 
-
-"*****************************************************************************
-"*****************************************************************************
-
-"" Include user's local vim config
-
-source $HOME/.config/nvim/plug-config/coc.vim
-source $HOME/.config/nvim/plug-config/which-key.vim
-source $HOME/.config/nvim/plug-config/xtabline.vim
-source $HOME/.config/nvim/plug-config/term.vim
-"*****************************************************************************
-"" Convenience variables
-"*****************************************************************************
+augroup marknotup
+  " Enable spellchecking for Markdown
+  autocmd FileType markdown setlocal spell
+augroup END
 
 " vim-airline
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-" colorscheme nova
+let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_powerline_fonts')
   let g:airline#extensions#tabline#left_sep = ' '
@@ -629,18 +597,29 @@ else
 endif
 
 
-silent! colorscheme gruvbox
-set background=dark
-
+" Comments in Italic
 hi Comment cterm=italic
 " hi LineNr ctermbg=NONE guibg=NONE
 
-let g:airline_theme='gruvbox'
 let g:gruvbox_invert_selection='0'
-let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_italic='1'
 
+silent! colorscheme gruvbox
+set background=dark
 
 if has('nvim') && executable('nvr')
-  let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+    " using nvr to opening a split inside neovim
+  let $VISUAL="nvr -cc split --remote-wait +'setlocal bufhidden=wipe'"
+  let $GITEDITOR="nvr -cc split --remote-wait +'setlocal bufhidden=wipe'"
+  let $EDITOR="nvr -l"
+  let $ECTO_EDITOR="nvr -l"
 endif
+
+" More config
+source $HOME/.config/nvim/plug-config/which-key.vim
+source $HOME/.config/nvim/plug-config/xtabline.vim
+source $HOME/.config/nvim/plug-config/term.vim
+source $HOME/.config/nvim/plug-config/lsp.vim
+source $HOME/.config/nvim/plug-config/coc.vim
+source $HOME/.config/nvim/plug-config/elixir.vim
