@@ -1,0 +1,75 @@
+set ideajoin
+set number
+set relativenumber
+set nowrap
+
+set title
+set titleold="Terminal"
+set titlestring=%F
+
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+
+let mapleader=' '
+
+" Map \r to the Reformat Code action
+nmap <leader>r :action ReformatCode<CR>
+nmap <leader>rc :action ReformatCode<CR>
+
+" Map <leader>d to start debug
+" TODO: try to match with Neovim
+nmap <leader>d :action Debug<CR>
+nmap <leader>b :action Back<cr>
+nmap <leader>f :action Forward<cr>
+
+" key bindings for quickly moving between windows
+" h left, l right, k up, j down
+" nmap <leader>h <c-w>h
+" nmap <leader>l <c-w>l
+" nmap <leader>k <c-w>k
+" nmap <leader>j <c-w>j
+
+"" Switching windows
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+nmap <C-h> <C-w>h
+
+" Just like coc
+nnoremap gy :action QuickTypeDefinition<cr>
+nnoremap gd :action GotoDeclaration<cr>
+nnoremap gs :action GotoSuperMethod<cr>
+nnoremap gi :action GotoImplementation<cr>
+nnoremap gb :action JumpToLastChange<cr>
+nnoremap gr :action FindUsages<cr>
+nnoremap <leader>rn :action RenameElement<cr>
+nnoremap <leader>ac :action ShowIntentionActions<cr>
+
+nnoremap ]g :action GotoNextError<cr>
+nnoremap [g :action GotoPreviousError<cr>
+
+nmap <leader>sa :action FindInPath<cr>
+nmap <C-p> :action GotoFile<cr>
+
+"" Vmap for maintain Visual Mode after shifting > and <
+vmap < <gv
+vmap > >gv
+
+" Plugins
+" https://github.com/JetBrains/ideavim/blob/master/doc/emulated-plugins.md
+set argtextobj
+set textobj-entire
+set highlightedyank
+set surround
+set commentary
+set textobj-entire
+
+" must installed https://plugins.jetbrains.com/plugin/13360-ideavim-easymotion/
+set easymotion
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>Ew <Plug>(easymotion-bd-w)
+nmap <Leader>Ew <Plug>(easymotion-overwin-w)
