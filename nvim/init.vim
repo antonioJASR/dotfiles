@@ -17,21 +17,28 @@ endif
 " Required:
 call plug#begin(expand('~/.config/nvim/plugged'))
 
+" Plugins to match IDEAVIM
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
+
+" Display vertical lines
 Plug 'Yggdroot/indentLine'
+
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-surround'
-Plug 'kshenoy/vim-signature'
-Plug 'tpope/vim-eunuch'
 
-" Better Tabs
-Plug 'mg979/vim-xtabline'
+" Display marks
+Plug 'kshenoy/vim-signature'
+
+Plug 'tpope/vim-eunuch'
 
 " undo time travel
 Plug 'mbbill/undotree'
@@ -39,18 +46,23 @@ Plug 'mbbill/undotree'
 " Netrc improved
 Plug 'tpope/vim-vinegar'
 
-" COC
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " be fast bruh
 " Plug 'ThePrimeagen/vim-apm'
-Plug 'ThePrimeagen/vim-be-good'
+" Plug 'ThePrimeagen/vim-be-good'
 
 " LSP Goodies
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
+Plug 'nvim-lua/lsp_extensions.nvim'
 
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
+Plug 'kyazdani42/nvim-web-devicons' " Good Icons
 
 " Terminal goodies
 Plug 'kassio/neoterm'
@@ -65,23 +77,10 @@ Plug 'liuchengxu/vim-which-key'
 " Lol Smoothie
 " Plug 'psliwka/vim-smoothie'
 
-
-if isdirectory('/usr/local/opt/fzf')
-  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-else
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-  Plug 'junegunn/fzf.vim'
-endif
-
 let g:make = 'gmake'
 if exists('make')
         let g:make = 'make'
 endif
-" Plug 'Shougo/vimproc.vim', {'do': g:make}
-
-"" Vim-Session
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-session'
 
 "" Snippets
 Plug 'SirVer/ultisnips'
@@ -90,28 +89,20 @@ Plug 'honza/vim-snippets'
 "" Color
 Plug 'morhetz/gruvbox'
 
-" Async tasks
-Plug 'skywind3000/asynctasks.vim'
-Plug 'skywind3000/asyncrun.vim'
-
 " elixir
 Plug 'elixir-lang/vim-elixir'
 " Plug 'carlosgaldino/elixir-snippets'
-
-" elm
-"" Elm Bundle
-Plug 'elmcast/elm-vim'
 
 " erlang
 Plug 'jimenezrick/vimerl'
 
 " html
-Plug 'hail2u/vim-css3-syntax'
+" Plug 'hail2u/vim-css3-syntax'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'mattn/emmet-vim'
 
 " javascript
-Plug 'jelera/vim-javascript-syntax'
+" Plug 'jelera/vim-javascript-syntax'
 
 " ruby
 Plug 'tpope/vim-rails'
@@ -120,7 +111,7 @@ Plug 'tpope/vim-projectionist'
 
 " typescript
 Plug 'leafgarland/typescript-vim'
-Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'HerringtonDarkholme/yats.vim'
 
 " Awesome Comments
 Plug 'tpope/vim-commentary'
@@ -196,7 +187,7 @@ inoremap <C-c> <esc>
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+set updatetime=100
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -363,35 +354,9 @@ set autoread
 "" Opens a tab edit command with the path of the currently edited file filled
 " noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
-"" fzf.vim
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 
-" ripgrep
-if executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-  set grepprg=rg\ --vimgrep
-  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-endif
-
-" The Silver Searcher
-if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
-  set grepprg=ag\ --nogroup\ --nocolor
-endif
-
-
-" Awesome Fuzzy Search
-nnoremap <C-p> :GFiles<CR>
-let g:fzf_layout = { 'window': {'width': 0.7, 'height': 0.7 } }
-let $FZF_DEFAULT_OPTS='--reverse'
-
-cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+" cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " nnoremap <silent> <leader>b :Buffers<CR>
-" nnoremap <silent> <leader>e :FZF -m<CR>
-"Recovery commands from history through FZF
-" nmap <leader>y :History:<CR>
 "
 " Search for help
 " nnoremap <leader>ghw :h <C-R>=expand("<cword>")<CR><CR>
@@ -400,7 +365,7 @@ cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 " nnoremap <leader>pw :Rg <C-R>=expand("<cword>")<CR><CR>
 "
 " Buffer Search
-nmap // :BLines<CR>
+" nmap // :BLines<CR>
 
 " Project Search
 " nmap ?? :Rg<CR>
@@ -470,15 +435,15 @@ vnoremap <S-Tab> <gv
 nnoremap <tab><tab> <c-^>
 
 " Delete current buffer without losing the split
-nnoremap <silent> <C-x> :bp\|bd #<CR>
+" nnoremap <silent> <leader><C-x> :bp\|bd #<CR>
 
 " Disable directional keys and use them to resize windows
 let g:animate#duration = 200.0
 
-nnoremap <silent> <Up>    :call animate#window_delta_height(-3)<CR>
-nnoremap <silent> <Down>  :call animate#window_delta_height(3)<CR>
-nnoremap <silent> <Left>  :call animate#window_delta_width(-5)<CR>
-nnoremap <silent> <Right> :call animate#window_delta_width(5)<CR>
+nnoremap <silent> <S-Up>    :call animate#window_delta_height(-3)<CR>
+nnoremap <silent> <S-Down>  :call animate#window_delta_height(3)<CR>
+nnoremap <silent> <S-Left>  :call animate#window_delta_width(-5)<CR>
+nnoremap <silent> <S-Right> :call animate#window_delta_width(5)<CR>
 
 "*****************************************************************************
 "" Custom configs
@@ -491,7 +456,6 @@ nnoremap <silent> <Right> :call animate#window_delta_width(5)<CR>
 " erlang
 let erlang_folding = 1
 let erlang_show_errors = 1
-
 
 " html
 " for html files, 2 spaces
@@ -518,16 +482,12 @@ augroup vimrc-ruby
   autocmd FileType ruby set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2
 augroup END
 
-
 " For ruby refactory
 if has('nvim')
   runtime! macros/matchit.vim
 else
   packadd! matchit
 endif
-
-" Ruby refactory
-nnoremap <leader>rcpc :RConvertPostConditional<cr>
 
 " typescript
 let g:yats_host_keyword = 1
@@ -596,6 +556,14 @@ else
   let g:airline_symbols.linenr = ''
 endif
 
+" Easymotion
+" Move to line
+map <Leader>El <Plug>(easymotion-bd-jk)
+nmap <Leader>El <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>Ew <Plug>(easymotion-bd-w)
+nmap <Leader>Ew <Plug>(easymotion-overwin-w)
 
 " Comments in Italic
 hi Comment cterm=italic
@@ -605,8 +573,8 @@ let g:gruvbox_invert_selection='0'
 let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_italic='1'
 
-silent! colorscheme gruvbox
 set background=dark
+silent! colorscheme gruvbox
 
 if has('nvim') && executable('nvr')
     " using nvr to opening a split inside neovim
@@ -618,8 +586,8 @@ endif
 
 " More config
 source $HOME/.config/nvim/plug-config/which-key.vim
-source $HOME/.config/nvim/plug-config/xtabline.vim
 source $HOME/.config/nvim/plug-config/term.vim
 source $HOME/.config/nvim/plug-config/lsp.vim
-source $HOME/.config/nvim/plug-config/coc.vim
+" source $HOME/.config/nvim/plug-config/xtabline.vim
+" source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/plug-config/elixir.vim

@@ -43,10 +43,10 @@ if has('nvim')
   tnoremap <C-k> <C-\><C-n><C-w>k
   tnoremap <C-l> <C-\><C-n><C-w>l
 
-  tnoremap <silent> <Up>    :call animate#window_delta_height(-4)<CR>
-  tnoremap <silent> <Down>  :call animate#window_delta_height(4)<CR>
-  " tnoremap <silent> <Left>  :call animate#window_delta_width(5)<CR>
-  " tnoremap <silent> <Right> :call animate#window_delta_width(-5)<CR>
+  tnoremap <silent> <S-Up>    :call animate#window_delta_height(-4)<CR>
+  tnoremap <silent> <S-Down>  :call animate#window_delta_height(4)<CR>
+  " tnoremap <silent> <S-Left>  :call animate#window_delta_width(5)<CR>
+  " tnoremap <silent> <S-Right> :call animate#window_delta_width(-5)<CR>
 
   set emoji " 😄
 endif
