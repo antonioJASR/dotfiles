@@ -21,7 +21,6 @@ let g:which_key_use_floating_win=1
 let g:which_key_floating_relative_win=1
 " let g:which_key_floating_opts = { 'row': '10' }
 
-
 " Change the colors if you want
 " highlight default link WhichKey          Operator
 " highlight default link WhichKeySeperator DiffAdded
@@ -35,15 +34,16 @@ let g:which_key_floating_relative_win=1
 
 " Single mappings
 let g:which_key_map['.'] = [ ':lcd %:p:h'                         , 'set working directory' ]
-" let g:which_key_map[';'] = [ ':Commands'                          , 'commands' ]
 let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
-" let g:which_key_map['d'] = [ ':bp\|bd #'               , 'delete buffer' ]
-" let g:which_key_map['e'] = [ ':CocCommand explorer'               , 'explorer' ]
+let g:which_key_map['e'] = [ ':NvimTreeToggle'               , 'explorer' ]
 let g:which_key_map['n'] = [ ':let @/ = ""'                       , 'no highlight' ]
-let g:which_key_map['p'] = [ ':lua require''telescope.builtin''.git_files{}'                             , 'search files (.git)' ]
-let g:which_key_map['f'] = [ ':lua require''telescope.builtin''.find_files{}'                             , 'find files in current dir' ]
 let g:which_key_map['O'] = [ ':e $RTP'                            , 'open init' ]
 let g:which_key_map['R'] = [ ':so ~/.config/nvim/init.vim'                    , 'reload init.vim']
+let g:which_key_map[';'] = [ ':Telescope commands'                          , 'commands' ]
+
+" let g:which_key_map['p'] = [ ':lua require''telescope.builtin''.git_files{}'                             , 'search files (.git)' ]
+" let g:which_key_map['f'] = [ ':lua require''telescope.builtin''.find_files{}'                             , 'find files in current dir' ]
+" let g:which_key_map['d'] = [ ':bp\|bd #'               , 'delete buffer' ]
 
 " Group mappings
 
