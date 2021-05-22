@@ -59,8 +59,9 @@ set splitright
 set mouse=a
 set mousemodel=popup
 
-set spelllang=en_us,es_mx
 set spell
+set spelllang=en_us
+" set spelllang=en_us,es_mx
 
 " Use modeline overrides
 set modeline
@@ -84,10 +85,12 @@ set nowritebackup
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+set updatetime=50
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
+
+set completeopt=menuone,noselect
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.

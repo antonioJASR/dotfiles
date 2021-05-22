@@ -5,6 +5,7 @@ source ~/.config/nvim/theme.vim
 source ~/.config/nvim/plug_config/which_key.vim
 
 luafile ~/.config/nvim/lua/plugins/lsp.lua
+luafile ~/.config/nvim/lua/plugins/compe.lua
 luafile ~/.config/nvim/lua/plugins/telescope.lua
 luafile ~/.config/nvim/lua/plugins/treesitter.lua
 luafile ~/.config/nvim/lua/plugins/neoscroll.lua

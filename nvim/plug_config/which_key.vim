@@ -126,11 +126,14 @@ let g:which_key_map.l = {
       \ ',' : [':lua vim.lsp.stop_client(vim.lsp.get_active_clients())', 'restart-lsp'],
       \ 'a' : [':lua vim.lsp.buf.code_action()'   , 'code action'],
       \ 'r' : [':lua vim.lsp.buf.rename()'   , 'rename'],
+      \ 'i' : [':lua vim.lsp.buf.implementation()'   , 'implementation'],
+      \ 's' : [':lua vim.lsp.buf.signature_help()'   , 'signature help'],
+      \ 'h' : [':lua vim.lsp.buf.hover()'   , 'hover'],
+      \ 'l' : [':lua vim.lsp.util.show_line_diagnostics()'   , 'line diagnostics'],
+      \ 'd' : [':lua vim.lsp.buf.definition()'   , 'definition'],
       \ 'o' : [':OpenDiagnostic'   , 'open diagnostics'],
-      \ 'P' : [':lua require''telescope.builtin''.planets{}'   , 'planets'],
-      \ 's' : [':lua require''telescope.builtin''.lsp_document_symbols{}'   , 'document symbols'],
-      \ 'S' : [':lua require''telescope.builtin''.lsp_workspace_symbols{}'   , 'workspace symbols'],
       \ }
+      " \ 'P' : [':lua require''telescope.builtin''.planets{}'   , 'planets'],
 
 " r is for running
  let g:which_key_map.r = {
