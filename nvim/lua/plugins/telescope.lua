@@ -36,6 +36,6 @@ require('telescope').load_extension('fzy_native')
 --     })
 -- end
 
-vim.api.nvim_set_keymap("n", "<C-p>", ":Telescope git_files", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<C-f>", ":Telescipe find_files", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-p>", ":Telescope git_files<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-f>", ":Telescipe find_files<CR>", {noremap = true, silent = true})
 
