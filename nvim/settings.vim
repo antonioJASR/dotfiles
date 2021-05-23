@@ -39,23 +39,24 @@ set cursorline " Highlight current line
 set colorcolumn=100
 highlight ColorColumn ctermbg=1 guibg=lightgrey
 
+" Try to redraw less
 set lazyredraw
+set ttyfast
 
 set termguicolors                       " More colors please
 
-set confirm
+set confirm " Ask confirmation after trying to leave
 
 set ruler
-" set number
 
 " Relative Number
-set relativenumber
+" set relativenumber
+set number
 set fileformats=unix,dos,mac
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
-
 
 " Enable mouse because why not
 set mouse=a
@@ -102,4 +103,7 @@ if has("nvim-0.5.0") || has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
+
+set foldmethod=manual           " anything other than 'syntax'
+" set foldmethod=indent
 
