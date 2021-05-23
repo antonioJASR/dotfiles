@@ -39,6 +39,8 @@ set cursorline " Highlight current line
 set colorcolumn=100
 highlight ColorColumn ctermbg=1 guibg=lightgrey
 
+set lazyredraw
+
 set termguicolors                       " More colors please
 
 set confirm

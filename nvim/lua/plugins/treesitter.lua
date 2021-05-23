@@ -5,7 +5,7 @@ require'nvim-treesitter.configs'.setup {
   },
   refactor = {
     highlight_definitions = { enable = true },
-    highlight_current_scope = { enable = true },
+    highlight_current_scope = { enable = false },
     smart_rename = {
       enable = true,
       keymaps = {
@@ -13,7 +13,7 @@ require'nvim-treesitter.configs'.setup {
       },
     },
     navigation = {
-      enable = true,
+      enable = false,
       keymaps = {
         goto_definition = "gnd",
         list_definitions = "gnD",

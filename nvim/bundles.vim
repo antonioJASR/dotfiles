@@ -42,6 +42,9 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 
+" Commit Browser
+Plug 'junegunn/gv.vim'
+
 " Ruby
 Plug 'tpope/vim-rbenv', { 'for': 'ruby' }
 Plug 'tpope/vim-bundler', { 'for': 'ruby' }
@@ -82,6 +85,7 @@ Plug 'thoughtbot/vim-rspec'
 
 " Themes
 Plug 'arcticicestudio/nord-vim'
+Plug 'gruvbox-community/gruvbox'
 
 " File Explorer
 Plug 'kyazdani42/nvim-tree.lua'

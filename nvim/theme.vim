@@ -7,7 +7,8 @@ if exists("*fugitive#statusline")
 endif
 
 " Awesome Theme
-colorscheme nord
+" colorscheme nord
+colorscheme gruvbox
 
 set mousemodel=popup
 set t_Co=256
