@@ -87,12 +87,14 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'arcticicestudio/nord-vim'
 Plug 'gruvbox-community/gruvbox'
 
+" Another Status line
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+
+" If you want to display icons, then use one of these plugins:
+Plug 'kyazdani42/nvim-web-devicons' " lua
+
 " File Explorer
 Plug 'kyazdani42/nvim-tree.lua'
-
-" Some Good Icons
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'ryanoasis/vim-devicons'
 
 Plug 'editorconfig/editorconfig-vim'
 

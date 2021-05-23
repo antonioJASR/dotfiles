@@ -1,14 +1,14 @@
 "" Status bar included in Neovim
-set laststatus=2
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
+" set laststatus=2
+" set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)
 
-if exists("*fugitive#statusline")
-  set statusline+=%{fugitive#statusline()}
-endif
+" if exists("*fugitive#statusline")
+"   set statusline+=%{fugitive#statusline()}
+" endif
 
 " Awesome Theme
-" colorscheme nord
-colorscheme gruvbox
+colorscheme nord
+" colorscheme gruvbox
 
 set mousemodel=popup
 set t_Co=256
