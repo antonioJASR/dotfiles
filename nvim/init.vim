@@ -26,6 +26,9 @@ let g:UltiSnipsEditSplit="vertical"
 " set gcr=a:blinkon0
 " set scrolloff=3
 
+" Emmet
+let g:user_emmet_leader_key='<C-y>'
+
 " remove trailing whitespaces
 command! FixWhitespace :%s/\s\+$//e
 

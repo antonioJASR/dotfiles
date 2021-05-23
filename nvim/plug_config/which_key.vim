@@ -8,7 +8,7 @@ vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
 let g:which_key_map =  {}
 " Define a separator
 let g:which_key_sep = '→'
-set timeoutlen=500
+set timeoutlen=400 " Emmet need this!!
 
 " Coc Search & refactor
 " nnoremap <leader>? :CocSearch <C-R>=expand("<cword>")<CR><CR>
@@ -36,6 +36,7 @@ let g:which_key_floating_relative_win=1
 let g:which_key_map['.'] = [ ':lcd %:p:h'                         , 'set working directory' ]
 let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
 let g:which_key_map['e'] = [ ':NvimTreeToggle'               , 'explorer' ]
+let g:which_key_map['E'] = [ ':NvimTreeFindFile'               , 'find file in explorer' ]
 let g:which_key_map['n'] = [ ':let @/ = ""'                       , 'no highlight' ]
 let g:which_key_map['O'] = [ ':e $RTP'                            , 'open init' ]
 let g:which_key_map['R'] = [ ':so ~/.config/nvim/init.vim'                    , 'reload init.vim']
