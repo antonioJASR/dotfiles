@@ -68,3 +68,62 @@ Command line editing `:`
 <C-p> History Up Action
 
 ```
+
+## VIM Only
+
+### Git Fugitive
+
+Git Status
+
+```
+<leader>gs Git Status
+
+s - Stage
+u - Unstage
+dv - Diff Vertical
+```
+
+Git Diff
+
+```
+<leader>gh Select left change
+<leader>gl Select right change
+<C-w>o Close the buffers
+```
+
+### Nvimtree
+
+- `r` rename file
+- `R` Refresh the tree
+- `a` add file
+- `c` copy file
+- `x` cut file
+- `p` paste file
+- `d` delete a file
+- `Y` copy relative path to system clipboard
+- `<C-v>` will open the file in a vertical split
+- `<C-x>` will open the file in a horizontal split
+- `<C-t>` will open the file in a new tab
+
+## Tmux
+
+The Prefix is `<C-a>`
+
+```
+<C-a><C-a> Go to the beginning of line
+
+<C-a>- Horizontal Split
+<C-a>\ Vertical Split
+
+<C-a>c New Window
+<C-a>n Next Window
+<C-a>p Previous Window
+<C-a><C-j> Choose Window
+
+<S-Up> Resize Pane
+<S-Left> Resize Pane
+<S-Right> Resize Pane
+<S-Down> Resize Pane
+
+
+```
