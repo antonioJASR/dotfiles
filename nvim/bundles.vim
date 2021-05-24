@@ -125,9 +125,14 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+Plug 'glepnir/lspsaga.nvim'
 
 " Smooth Scrolling
 Plug 'karb94/neoscroll.nvim'
+
+" Preview Colors
+" Plug 'gko/vim-coloresque'
+" Plug 'shmargum/vim-sass-colors'
 
 call plug#end()
 

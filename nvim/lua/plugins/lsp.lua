@@ -29,11 +29,14 @@ nvim_lsp['cssls'].setup {
   capabilities = capabilities
 }
 
+-- TypeScript
+-- npm install -g typescript typescript-language-server
+-- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#tsserver
+nvim_lsp.tsserver.setup{}
 
 -- Dart
 -- https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#dartls
 nvim_lsp.dartls.setup{}
-
 
 -- Ruby
 -- Install: gem install --user-install solargraph
