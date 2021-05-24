@@ -23,6 +23,9 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
+" map <M-s> :w<Enter>  "Works in normal mode, must press Esc first
+" imap <M-s> <Esc>:w<Enter>i "Works in insert mode, saves and puts back in insert mode
+
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>

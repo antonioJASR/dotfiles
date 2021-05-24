@@ -133,6 +133,7 @@ Plug 'karb94/neoscroll.nvim'
 " Preview Colors
 " Plug 'gko/vim-coloresque'
 " Plug 'shmargum/vim-sass-colors'
+Plug 'sbdchd/neoformat'
 
 call plug#end()
 

@@ -35,7 +35,7 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 " Single mappings
 let g:which_key_map['.'] = [ ':lcd %:p:h'                         , 'set working directory' ]
-let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
+let g:which_key_map['='] = [ ':Neoformat'                             , 'neoformat' ]
 let g:which_key_map['e'] = [ ':NvimTreeToggle'               , 'explorer' ]
 let g:which_key_map['E'] = [ ':NvimTreeFindFile'               , 'find file in explorer' ]
 let g:which_key_map['n'] = [ ':let @/ = ""'                       , 'no highlight' ]
