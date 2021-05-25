@@ -40,6 +40,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-ragtag'
+
+Plug 'tpope/vim-haml'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 
 " Commit Browser
