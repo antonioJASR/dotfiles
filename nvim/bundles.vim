@@ -57,7 +57,8 @@ Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
 Plug 'plasticboy/vim-markdown'
 
 " Which Key
-Plug 'liuchengxu/vim-which-key'
+" "Plug 'liuchengxu/vim-which-key'
+Plug 'folke/which-key.nvim'
 
 " undo time travel
 Plug 'mbbill/undotree'
@@ -105,8 +106,12 @@ Plug 'kassio/neoterm'
 Plug 'vim-test/vim-test'
 
 " Vim Tmux integration
+" TODO Replaced with Navigator
+" Plug 'numToStr/Navigator.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
+
+
 
 " Start Screen
 Plug 'mhinz/vim-startify'
@@ -136,6 +141,15 @@ Plug 'karb94/neoscroll.nvim'
 " Plug 'gko/vim-coloresque'
 " Plug 'shmargum/vim-sass-colors'
 Plug 'sbdchd/neoformat'
+
+" Rainbow
+Plug 'nvim-ts-rainbow'
+
+" Auto pairs
+Plug 'steelsojka/pears.nvim'
+
+" Pimp my Neovim
+Plug 'edluffy/specs.nvim'
 
 call plug#end()
 

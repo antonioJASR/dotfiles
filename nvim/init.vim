@@ -2,7 +2,7 @@ source ~/.config/nvim/settings.vim
 source ~/.config/nvim/bundles.vim
 source ~/.config/nvim/keys.vim
 source ~/.config/nvim/theme.vim
-source ~/.config/nvim/plug_config/which_key.vim
+" source ~/.config/nvim/plug_config/which_key.vim
 
 luafile ~/.config/nvim/lua/plugins/lsp.lua
 luafile ~/.config/nvim/lua/plugins/compe.lua
@@ -11,6 +11,10 @@ luafile ~/.config/nvim/lua/plugins/telescope.lua
 luafile ~/.config/nvim/lua/plugins/treesitter.lua
 luafile ~/.config/nvim/lua/plugins/neoscroll.lua
 luafile ~/.config/nvim/lua/plugins/galaxy_line.lua
+luafile ~/.config/nvim/lua/plugins/pears.lua
+luafile ~/.config/nvim/lua/plugins/specs.lua
+luafile ~/.config/nvim/lua/plugins/ts-rainbow.lua
+luafile ~/.config/nvim/lua/plugins/which-key.lua
 
 " session management
 let g:session_directory = "~/.config/nvim/session"

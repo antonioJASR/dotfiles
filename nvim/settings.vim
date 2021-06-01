@@ -95,6 +95,8 @@ set shortmess+=c
 
 set completeopt=menuone,noselect
 
+set timeoutlen=400 " Emmet need this!!
+
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("nvim-0.5.0") || has("patch-8.1.1564")
