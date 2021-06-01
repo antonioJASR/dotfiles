@@ -114,7 +114,7 @@ Plug 'christoomey/vim-tmux-runner'
 
 
 " Start Screen
-Plug 'mhinz/vim-startify'
+Plug 'glepnir/dashboard-nvim'
 
 " NEOVIM ONLY
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
@@ -150,6 +150,7 @@ Plug 'steelsojka/pears.nvim'
 
 " Pimp my Neovim
 Plug 'edluffy/specs.nvim'
+
 
 call plug#end()
 

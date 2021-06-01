@@ -52,6 +52,7 @@ vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', {noremap = true,
 
 -- explorer
 vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>E', ':NvimTreeFindFile<CR>', {noremap = true, silent = true})
 
 -- telescope
 vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<CR>', {noremap = true, silent = true})
@@ -69,15 +70,24 @@ vim.api.nvim_set_keymap("n", "<leader>c", ":BufferClose<CR>", {noremap = true, s
 -- open projects
 vim.api.nvim_set_keymap('n', '<leader>p', ":lua require'telescope'.extensions.project.project{}<CR>",
                         {noremap = true, silent = true})
+
+-- Neoformat
+vim.api.nvim_set_keymap('n', '<Leader>=', ':Neoformat<CR>', {noremap = true, silent = true})
+
+-- Reload init.vim
+vim.api.nvim_set_keymap('n', '<Leader>R', ':so ~/.config/nvim/init.vim<CR>', {noremap = true, silent = true})
 -- TODO create entire treesitter section
 
 local mappings = {
     ["/"] = "Comment",
+    ["="] = "Neoformat",
     ["c"] = "Close Buffer",
     ["e"] = "Explorer",
+    ["E"] = "Find file in Explorer",
     ["f"] = "Find File",
     ["h"] = "No Highlight",
     ["p"] = "Projects",
+    ["R"] = "Reload init.vim",
     d = {
         name = "+Diagnostics",
         t = {"<cmd>TroubleToggle<cr>", "trouble"},
