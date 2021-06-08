@@ -89,6 +89,9 @@ Git Diff
 <leader>gh Select left change
 <leader>gl Select right change
 <C-w>o Close the buffers
+
+]c Next Change
+[c Previous Change
 ```
 
 ### Nvimtree
