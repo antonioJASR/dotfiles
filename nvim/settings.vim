@@ -50,8 +50,8 @@ set confirm " Ask confirmation after trying to leave
 set ruler
 
 " Relative Number
-" set relativenumber
 set number
+set relativenumber
 set fileformats=unix,dos,mac
 
 " Open new split panes to right and bottom, which feels more natural
