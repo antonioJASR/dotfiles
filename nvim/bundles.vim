@@ -26,7 +26,6 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 
 " Plugins to match IDEAVIM
 Plug 'vim-scripts/argtextobj.vim'
-Plug 'easymotion/vim-easymotion'
 
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-scriptease'
@@ -63,11 +62,13 @@ Plug 'folke/which-key.nvim'
 " undo time travel
 Plug 'mbbill/undotree'
 
-" Plug 'airblade/vim-gitgutter'
-" Plug 'Raimondi/delimitMate' " Automatic closing of quotes
+" Git marks 
+Plug 'airblade/vim-gitgutter'
+
 " Plug 'majutsushi/tagbar' " Display tags
 " Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
+
 
 "" Vim-Session
 Plug 'xolox/vim-misc'
@@ -76,6 +77,9 @@ Plug 'xolox/vim-session'
 "" Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'rafamadriz/friendly-snippets'
 
 " html
 "" HTML Bundle
@@ -92,6 +96,9 @@ Plug 'gruvbox-community/gruvbox'
 
 " Another Status line
 Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+
+" NVIM tab bar
+Plug 'romgrk/barbar.nvim'
 
 " If you want to display icons, then use one of these plugins:
 Plug 'kyazdani42/nvim-web-devicons' " lua
@@ -110,7 +117,6 @@ Plug 'vim-test/vim-test'
 " Plug 'numToStr/Navigator.nvim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
-
 
 
 " Start Screen
@@ -133,9 +139,11 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'glepnir/lspsaga.nvim'
+Plug 'folke/trouble.nvim'
+Plug 'kabouzeid/nvim-lspinstall'
 
 " Smooth Scrolling
-Plug 'karb94/neoscroll.nvim'
+" Plug 'karb94/neoscroll.nvim'
 
 " Preview Colors
 " Plug 'gko/vim-coloresque'
@@ -143,13 +151,17 @@ Plug 'karb94/neoscroll.nvim'
 Plug 'sbdchd/neoformat'
 
 " Rainbow
-Plug 'nvim-ts-rainbow'
+" Plug 'nvim-ts-rainbow'
 
 " Auto pairs
 Plug 'steelsojka/pears.nvim'
 
 " Pimp my Neovim
 Plug 'edluffy/specs.nvim'
+
+" Vim be goodies
+Plug 'ThePrimeagen/vim-be-good'
+
 
 
 call plug#end()
