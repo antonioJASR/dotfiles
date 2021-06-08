@@ -76,6 +76,7 @@ vim.api.nvim_set_keymap('n', '<Leader>=', ':Neoformat<CR>', {noremap = true, sil
 
 -- Reload init.vim
 vim.api.nvim_set_keymap('n', '<Leader>R', ':so ~/.config/nvim/init.vim<CR>', {noremap = true, silent = true})
+
 -- TODO create entire treesitter section
 
 local mappings = {
@@ -149,7 +150,7 @@ local mappings = {
         M = {"<cmd>Telescope man_pages<cr>", "Man Pages"},
         r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
         R = {"<cmd>Telescope registers<cr>", "Registers"},
-        t = {"<cmd>Telescope live_grep<cr>", "Text"}
+        s = {"<cmd>Telescope live_grep<cr>", "Search Text"}
     },
     S = {name = "+Session", s = {"<cmd>SessionSave<cr>", "Save Session"}, l = {"<cmd>SessionLoad<cr>", "Load Session"}},
 
