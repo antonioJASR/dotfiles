@@ -17,21 +17,21 @@ nnoremap <leader>? :lua require('telescope.builtin').grep_string { search = vim.
 let g:which_key_map['?'] = 'search word'
 
 " Not a fan of floating windows for this
-let g:which_key_vertical=0
-let g:which_key_use_floating_win=1
-let g:which_key_floating_relative_win=1
+" let g:which_key_vertical=0
+" let g:which_key_use_floating_win=1
+" let g:which_key_floating_relative_win=1
 " let g:which_key_floating_opts = { 'row': '10' }
 
 " Change the colors if you want
-highlight default link WhichKey          Operator
-highlight default link WhichKeySeperator DiffAdded
-highlight default link WhichKeyGroup     Identifier
-highlight default link WhichKeyDesc      Function
+" highlight default link WhichKey          Operator
+" highlight default link WhichKeySeperator DiffAdded
+" highlight default link WhichKeyGroup     Identifier
+" highlight default link WhichKeyDesc      Function
 
 " Hide status line
-autocmd! FileType which_key
-autocmd  FileType which_key set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
+" autocmd! FileType which_key
+" autocmd  FileType which_key set laststatus=0 noshowmode noruler
+"   \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 " Single mappings
 let g:which_key_map['.'] = [ ':lcd %:p:h'                         , 'set working directory' ]
