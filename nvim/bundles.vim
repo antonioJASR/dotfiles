@@ -118,7 +118,6 @@ Plug 'vim-test/vim-test'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 
-
 " Start Screen
 Plug 'glepnir/dashboard-nvim'
 

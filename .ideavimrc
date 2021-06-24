@@ -28,11 +28,11 @@ nmap <leader>f :action Forward<cr>
 " nmap <leader>k <c-w>k
 " nmap <leader>j <c-w>j
 
-"" Switching windows
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
-nmap <C-h> <C-w>h
+" Switching windows
+" nmap <C-j> <C-w>j
+" nmap <C-k> <C-w>k
+" nmap <C-l> <C-w>l
+" nmap <C-h> <C-w>h
 
 " Just like coc
 nnoremap gy :action QuickTypeDefinition<cr>
@@ -49,8 +49,9 @@ nnoremap [g :action GotoPreviousError<cr>
 
 nmap <leader>sa :action FindInPath<cr>
 nmap <C-p> :action GotoFile<cr>
+nmap <leader><space> :action GotoFile<cr>
 
-"" Vmap for maintain Visual Mode after shifting > and <
+" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
 vmap > >gv
 
@@ -63,7 +64,7 @@ set surround
 set commentary
 set textobj-entire
 
-" must installed https://plugins.jetbrains.com/plugin/13360-ideavim-easymotion/
+" must installed https://plugins.jetbrains.com/plugin/13360-ideavim-easymotion
 set easymotion
 
 " Move to line
@@ -73,3 +74,12 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 " Move to word
 map  <Leader>Ew <Plug>(easymotion-bd-w)
 nmap <Leader>Ew <Plug>(easymotion-overwin-w)
+
+" Eanble whichkey
+set which-key
+
+" disable the timeout option
+" set notimeout
+
+" increase the timeoutlen (default: 1000)
+set timeoutlen = 1000

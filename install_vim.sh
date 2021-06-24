@@ -11,4 +11,7 @@ cp -Rv nvim/plug_config/ ~/.config/nvim/plug_config/
 cp -Rv nvim/lua/ ~/.config/nvim/lua/
 cp -Rv .ideavimrc ~/.ideavimrc
 
+echo "=> Doom Emacs"
+cp -Rv emacs/*.el ~/.doom.d/
+
 echo "DONE"
