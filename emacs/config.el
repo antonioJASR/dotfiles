@@ -3,7 +3,6 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Antonio Sánchez" user-mail-address "antonio@bloq.dev")
@@ -29,7 +28,8 @@
 ;; (setq doom-theme 'doom-vibrant)
 ;; (setq doom-theme 'doom-palenight)
 ;; (setq doom-theme 'doom-ayu-mirage)
-(setq doom-theme 'doom-moonlight)
+;; (setq doom-theme 'doom-moonlight)
+(setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -63,29 +63,18 @@
 (define-key evil-normal-state-map (kbd "g t") 'centaur-tabs-forward)
 (define-key evil-normal-state-map (kbd "g T") 'centaur-tabs-backward)
 
-
 ;; Windows
 (setq evil-vsplit-window-right t
       evil-split-window-below t)
 
-;; Select which buffer you want to select
-;; (defadvice! prompt-for-buffer (&rest _)
-;;   :after '(evil-window-split evil-window-vsplit)
-  ;; (+ivy/switch-buffer))
-
-;; Preview
-;; (setq +ivy-buffer-preview t)
-
 ;; I Like transparent windows
-(set-frame-parameter (selected-frame) 'alpha '(95 . 90))
-(add-to-list 'default-frame-alist '(alpha . (95 . 90)))
+;; (set-frame-parameter (selected-frame) 'alpha '(95 . 90))
+;; (add-to-list 'default-frame-alist '(alpha . (95 . 90)))
 
-(add-to-list 'default-frame-alist '(width . 180))
-(add-to-list 'default-frame-alist '(height . 70))
+(add-to-list 'default-frame-alist '(width . 170))
+(add-to-list 'default-frame-alist '(height . 60))
 
 
-;; scroll one line at a time (less "jumpy" than defaults)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-(setq scroll-step 1) ;; keyboard scroll one line at a time
+;; Enable Beacon everywhere
+(beacon-mode 1)
+

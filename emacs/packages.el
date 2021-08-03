@@ -58,3 +58,7 @@
 ;; https://emacs-lsp.github.io/lsp-dart/#additional-packages
 ;; hover.el and flutter.el are already installed
 (package! lsp-treemacs)
+
+;; Beacon mode - Never lose cursor again again
+(package! beacon)
+
