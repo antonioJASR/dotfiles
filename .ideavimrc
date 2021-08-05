@@ -83,3 +83,5 @@ set which-key
 
 " increase the timeoutlen (default: 1000)
 set timeoutlen = 1000
+
+set which-key
