@@ -60,8 +60,8 @@
 (setq-default fill-column 100)
 
 ;; Change Tabs like the Dark Lord
-(define-key evil-normal-state-map (kbd "g t") 'centaur-tabs-forward)
-(define-key evil-normal-state-map (kbd "g T") 'centaur-tabs-backward)
+;; (define-key evil-normal-state-map (kbd "g t") 'centaur-tabs-forward)
+;; (define-key evil-normal-state-map (kbd "g T") 'centaur-tabs-backward)
 
 ;; Windows
 (setq evil-vsplit-window-right t
@@ -76,5 +76,4 @@
 
 
 ;; Enable Beacon everywhere
-(beacon-mode 1)
-
+(beacon-mode 0)
