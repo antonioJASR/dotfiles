@@ -51,7 +51,6 @@
 
 
 (package! evil-tutor)
-(package! rbenv)
 
 
 ;; Flutter experience

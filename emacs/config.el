@@ -27,13 +27,21 @@
 ;; `load-theme' function. This is the default:
 ;; (setq doom-theme 'doom-vibrant)
 ;; (setq doom-theme 'doom-palenight)
+(setq doom-theme 'doom-horizont)
 ;; (setq doom-theme 'doom-ayu-mirage)
 ;; (setq doom-theme 'doom-moonlight)
-(setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Documents/org/")
+(setq org-directory "~/Notes/org/")
+(setq org-roam-directory "~/Notes/roam/")
+(setq org-roam-dailies-directory "~/Notes/journal/")
+
+;; https://orgmode.org/worg/org-tutorials/advanced-searching.html#searching-entry-text
+;; (add-to-list 'org-agenda-custom-commands
+;;              '("r" "Notes" tags ""
+;;                ((org-agenda-files (file-expand-wildcards "~/Projects/bloq.dev/Notes/*.org")))))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
