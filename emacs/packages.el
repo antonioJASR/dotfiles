@@ -50,14 +50,13 @@
 ;(unpin! t)
 
 
-(package! evil-tutor)
+;; (package! evil-tutor)
 
 
 ;; Flutter experience
 ;; https://emacs-lsp.github.io/lsp-dart/#additional-packages
 ;; hover.el and flutter.el are already installed
-(package! lsp-treemacs)
+;; (package! lsp-treemacs)
 
 ;; Beacon mode - Never lose cursor again again
-(package! beacon)
-
+;; (package! beacon)
